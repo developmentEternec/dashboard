@@ -1,0 +1,47 @@
+<div class="header">
+  <a href="#default" class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="100"  class="bi bi-house-fill" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+      <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+    </svg>
+  </a>
+  <div class="header-right">
+    <a class="active" href="home"><b>DATOS DEL CLIENTE</b></a>
+    <br>
+    <a class="razon">{{usuario.get_RazonSocial}}</a>
+    <br>
+    <a class="rfc">RFC: </a>
+    <br>
+    <a class="persona">Tipo de persona: </a>
+    <br>
+    <a class="direccion">Dirección fiscal: </a>    
+ 
+    
+
+  </div>
+</div>
+
+<div class="container">
+    <div [ngClass]="{menu: true, 'menu--open': isWideMenu}">
+      <div class="menu-toggle" (click)="toggleMenu()">
+        <svg width="30" height="20" viewBox="0 0 30 20" fill="#1c7cdc">
+          <rect x="10" y="5" width="11" height="1" />
+          <rect x="10" y="15" width="11" height="1" />
+          <polygon
+            points="29.48 10.27 24.23 5.03 23.52 5.73 27.79 10 10 10 10 11 27.79 11 23.52 15.27 24.23 15.97 29.48 10.73 29.7 10.5 29.48 10.27"
+          />
+        </svg>
+      </div>
+      <div *ngFor="let widget of widgets" class="menu-item" [title]="widget.title">
+        <svg width="64" height="64" viewBox="0 0 64 64" [innerHTML]="widget.icon"></svg>
+        <div class="menu-item-name">{{ widget.title }}</div>
+      </div>
+    </div>
+  
+    <div class="hr"></div>
+  
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
